@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- bootstrap -->
+    <!-- google fonts -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- google fonts -->
+  </head>
+  <body class="bg-dark text-primary">
+    <h1 style="text-align: center; margin: 3em;">Click Cricket 2020</h1>
+    <div class="container mt-4">
+      <div class="row justify-content-center disable">
+        <div class="col-5 col-lg-3">
+          <label for="" class="h3">Players</label>
+          <select class="custom-select custom-select-sm" id="players">
+            <option value="5">Five</option>
+            <option value="6">Six</option>
+            <option value="7">Seven</option>
+            <option value="8">Eight</option>
+            <option value="9">Nine</option>
+            <option value="10" selected>Ten</option>
+            <option value="11">Eleven</option>
+          </select>
+        </div>
+        <div class="col-5 col-lg-3 disable">
+          <label for="" class="h3">Time</label>
+          <select class="custom-select custom-select-sm" id="time">
+            <option value="5">Five seconds (for testing)</option>
+            <option value="50">Fifty seconds</option>
+            <option value="60" selected>Sixty seconds</option>
+            <option value="70">Seventy seconds</option>
+            <option value="80">Eighty seconds</option>
+            <option value="90">Ninety seconds</option>
+            <option value="100">Hundred seconds</option>
+          </select>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-4 disable">
+        <div class="col-5 col-lg-3 text-center">
+          <p class="h3">Toss and start</p>
+          <button class="btn btn-primary" type="button" onclick="toss()">
+            Toss
+          </button>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-4 enable">
+        <div class="col-5 col-lg-3 text-center">
+          <p class="h3" id="tossResult"></p>
+          <br /><br />
+          <p id="matchSettings"></p>
+          <br /><br />
+          <p class="h5">Match starting in</p>
+          <p class="h1" id="countdown">5</p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let players;
+    let time;
+    $(".enable").each(function (i, obj) {
+      $(obj).hide();
+    });
+    function toss() {
+      players = $("#players").val();
+      time = $("#time").val();
+      $(".disable").each(function (i, obj) {
+        $(obj).hide();
+      });
+      $(".enable").each(function (i, obj) {
+        $(obj).show();
+      });
+      let batting = Math.round(Math.random()) + 1;
+      $("#tossResult").text(`Team ${batting} bats first`);
+      $("#matchSettings").html(
+        `<p> players : ${players}</p><p> time : ${time} seconds</p>`
+      );
+      let c = 4;
+      let timer = setInterval(() => {
+        document.getElementById("countdown").innerText = `${c--}`;
+        if (c < 0) {
+          clearInterval(timer);
+          window.location.href = `./cricket_game.html?players=${players}&time=${time}&team=${batting}`;
+        }
+      }, 1000);
+    }
+  </script>
+</html>

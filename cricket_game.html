@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- bootstrap -->
+    <!-- google fonts -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- google fonts -->
+  </head>
+  <body>
+    <div class="container my-4">
+      <div class="row">
+        <div class="col-lg text-center">
+          <p class="h3">CRICKET 10</p>
+          <p class="h3" id="roundStatus"></p>
+          <hr style="border: 2px solid black;" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 text-center">
+          <p class="h4">
+            TEAM 1 SCORE
+          </p>
+          <p class="h4" id="team1Total">0</p>
+          <button
+            class="btn btn-primary"
+            type="button"
+            onclick="hit()"
+            id="team1hitbtn"
+          >
+            HIT
+          </button>
+        </div>
+        <div class="col-lg-4 text-center">
+          <p class="h2">
+            TIMER
+          </p>
+          <p class="h2" id="timer"></p>
+          <div class="d-flex justify-content-center">
+            <div
+              class="h3 rounded-circle bg-info pt-2"
+              style="height: 2em; width: 2em;"
+            >
+              <p class="m-0" id="randomRun">
+                R
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 text-center">
+          <p class="h4">
+            TEAM 2 SCORE
+          </p>
+          <p class="h4" id="team2Total">0</p>
+          <button
+            class="btn btn-primary"
+            type="button"
+            onclick="hit()"
+            id="team2hitbtn"
+          >
+            HIT
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <hr style="border: 2px solid black;" />
+        </div>
+      </div>
+      <!-- tables -->
+      <div class="row">
+        <div class="col-lg-6" id="table-team1"></div>
+        <div class="col-lg-6" id="table-team2"></div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-4 text-center">
+          <button
+            class="btn btn-primary"
+            type="button"
+            id="matchresultbtn"
+            onclick="results()"
+          >
+            Match Results
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
